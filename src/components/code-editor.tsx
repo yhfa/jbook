@@ -8,6 +8,7 @@ import traverse from "@babel/traverse";
 import Highlighter from "monaco-jsx-highlighter";
 
 import "./code-editor.css";
+import "./syntax.css";
 
 interface CodeEditorProps {
   intialValue: string;
@@ -31,7 +32,14 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ intialValue, onChange }) => {
       codeShift,
       monacoEditor
     );
-    highlighter.highLightOnDidChangeModelContent(100);
+
+    // Override logging errors
+    highlighter.highLightOnDidChangeModelContent(
+      () => {},
+      () => {},
+      undefined,
+      () => {}
+    );
   };
 
   const onFormatClick = () => {
