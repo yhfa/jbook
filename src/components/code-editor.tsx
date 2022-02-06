@@ -3,8 +3,6 @@ import MonacoEditor, { EditorDidMount } from "@monaco-editor/react";
 import prettier from "prettier";
 import parser from "prettier/parser-babel";
 import codeShift from "jscodeshift";
-import parse from "@babel/parser";
-import traverse from "@babel/traverse";
 import Highlighter from "monaco-jsx-highlighter";
 
 import "./code-editor.css";
